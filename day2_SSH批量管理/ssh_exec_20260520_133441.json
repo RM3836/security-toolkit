@@ -1,0 +1,25 @@
+{
+  "action": "exec",
+  "command": "uname -a && echo '---' && df -h / && echo '---' && free -h",
+  "time": "2026-05-20 13:34:41",
+  "total": 2,
+  "success": 0,
+  "results": [
+    {
+      "server": "admin@127.0.0.1:2224 [db]",
+      "host": "127.0.0.1",
+      "status": "error",
+      "stdout": "",
+      "stderr": "Error reading SSH protocol banner",
+      "exit_code": -1
+    },
+    {
+      "server": "testuser@127.0.0.1:2223 [web]",
+      "host": "127.0.0.1",
+      "status": "error",
+      "stdout": "",
+      "stderr": "Error reading SSH protocol banner",
+      "exit_code": -1
+    }
+  ]
+}

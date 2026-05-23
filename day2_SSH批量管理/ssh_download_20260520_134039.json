@@ -1,0 +1,19 @@
+{
+  "action": "download",
+  "command": "",
+  "time": "2026-05-20 13:40:39",
+  "total": 2,
+  "success": 2,
+  "results": [
+    {
+      "server": "admin@127.0.0.1:2224",
+      "status": "success",
+      "message": "下载到 /tmp/day2/downloaded/testfile.txt"
+    },
+    {
+      "server": "testuser@127.0.0.1:2223",
+      "status": "success",
+      "message": "下载到 /tmp/day2/downloaded/testfile.txt"
+    }
+  ]
+}

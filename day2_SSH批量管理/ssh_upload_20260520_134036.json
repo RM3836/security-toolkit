@@ -1,0 +1,19 @@
+{
+  "action": "upload",
+  "command": "",
+  "time": "2026-05-20 13:40:36",
+  "total": 2,
+  "success": 2,
+  "results": [
+    {
+      "server": "admin@127.0.0.1:2224",
+      "status": "success",
+      "message": "上传成功 -> /tmp/testfile.txt"
+    },
+    {
+      "server": "testuser@127.0.0.1:2223",
+      "status": "success",
+      "message": "上传成功 -> /tmp/testfile.txt"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title | default('登录') }} - 管理后台</title>
+    <style>
+        /* 通用登录页面样式 - 模仿真实WordPress/Jenkins */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            background: #f0f0f1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.13);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .login-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .login-logo h1 {
+            font-size: 28px;
+            color: #1d2327;
+            font-weight: 400;
+        }
+        .login-logo .logo-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .login-logo p {
+            color: #50575e;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            color: #2c3338;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #8c8f94;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            transition: border-color 0.15s;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #2271b1;
+            outline: none;
+            box-shadow: 0 0 0 1px #2271b1;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background: #2271b1;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover { background: #135e96; }
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #50575e;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        .back-link a {
+            color: #2271b1;
+            text-decoration: none;
+        }
+        .back-link a:hover { text-decoration: underline; }
+        .error-msg {
+            background: #fcf0f1;
+            border-left: 4px solid #d63638;
+            padding: 10px;
+            margin-bottom: 15px;
+            color: #d63638;
+            font-size: 13px;
+            display: none;
+        }
+        /* Jenkins风格 */
+        .jenkins-style { background: #f8f8f8; }
+        .jenkins-style .submit-btn { background: #4a90d9; }
+        .jenkins-style .submit-btn:hover { background: #357abd; }
+        /* phpMyAdmin风格 */
+        .phpmyadmin-style .login-logo h1 { color: #8b0000; }
+        .phpmyadmin-style .submit-btn { background: #8b0000; }
+        .phpmyadmin-style .submit-btn:hover { background: #6b0000; }
+        /* 版本信息 */
+        .version-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #8c8f94;
+        }
+    </style>
+</head>
+<body class="{{ style_class | default('') }}">
+    <div class="login-container">
+        <div class="login-logo">
+            <div class="logo-icon">{{ logo | default('🔧') }}</div>
+            <h1>{{ title | default('WordPress') }}</h1>
+            <p>{{ subtitle | default('站点管理登录') }}</p>
+        </div>
+
+        {% if error %}
+        <div class="error-msg" style="display: block;">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{{ action | default('/admin') }}">
+            <label for="log">用户名或电子邮件地址</label>
+            <input type="text" name="username" id="log" autocomplete="off" autofocus required>
+
+            <label for="pwd">密码</label>
+            <input type="password" name="password" id="pwd" required>
+
+            <div class="remember-me">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember" style="margin:0;font-weight:400">记住我的登录信息</label>
+            </div>
+
+            <button type="submit" class="submit-btn">{{ button_text | default('登录') }}</button>
+        </form>
+
+        <div class="back-link">
+            <a href="/">← 返回首页</a>
+        </div>
+
+        <div class="version-info">
+            {{ version_info | default('WordPress 6.4.2 &nbsp;|&nbsp; PHP 8.2.13') | safe }}
+        </div>
+    </div>
+</body>
+</html>

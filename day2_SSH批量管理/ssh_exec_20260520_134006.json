@@ -1,0 +1,17 @@
+{
+  "action": "exec",
+  "command": "hostname && ip addr show | grep 'inet ' | head -3",
+  "time": "2026-05-20 13:40:06",
+  "total": 1,
+  "success": 1,
+  "results": [
+    {
+      "server": "testuser@127.0.0.1:2223 [web]",
+      "host": "127.0.0.1",
+      "status": "success",
+      "stdout": "f99486f12281",
+      "stderr": "bash: line 1: ip: command not found",
+      "exit_code": 0
+    }
+  ]
+}

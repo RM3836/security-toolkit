@@ -1,0 +1,10 @@
+FROM ubuntu:22.04
+RUN apt-get update && apt-get install -y openssh-server && \
+    mkdir -p /var/run/sshd && \
+    echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
+    echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
+    useradd -m -s /bin/bash testuser && echo "testuser:test123" | chpasswd && \
+    useradd -m -s /bin/bash admin && echo "admin:admin456" | chpasswd && \
+    apt-get clean
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]

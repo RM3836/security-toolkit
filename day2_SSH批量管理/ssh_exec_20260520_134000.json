@@ -1,0 +1,25 @@
+{
+  "action": "exec",
+  "command": "uname -a && echo '---' && whoami && echo '---' && df -h / && echo '---' && free -h",
+  "time": "2026-05-20 13:40:00",
+  "total": 2,
+  "success": 2,
+  "results": [
+    {
+      "server": "admin@127.0.0.1:2224 [db]",
+      "host": "127.0.0.1",
+      "status": "success",
+      "stdout": "Linux 0649191204fe 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux\n---\nadmin\n---\nFilesystem      Size  Used Avail Use% Mounted on\noverlay        1007G   23G  934G   3% /\n---\n               total        used        free      shared  buff/cache   available\nMem:           2.8Gi       1.7Gi        55Mi       9.0Mi       1.1Gi       1.0Gi\nSwap:          4.0Gi       907Mi       3.1Gi",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "server": "testuser@127.0.0.1:2223 [web]",
+      "host": "127.0.0.1",
+      "status": "success",
+      "stdout": "Linux f99486f12281 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux\n---\ntestuser\n---\nFilesystem      Size  Used Avail Use% Mounted on\noverlay        1007G   23G  934G   3% /\n---\n               total        used        free      shared  buff/cache   available\nMem:           2.8Gi       1.7Gi        55Mi       9.0Mi       1.1Gi       1.0Gi\nSwap:          4.0Gi       907Mi       3.1Gi",
+      "stderr": "",
+      "exit_code": 0
+    }
+  ]
+}

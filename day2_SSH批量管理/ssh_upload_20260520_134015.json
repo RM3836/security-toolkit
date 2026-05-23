@@ -1,0 +1,19 @@
+{
+  "action": "upload",
+  "command": "",
+  "time": "2026-05-20 13:40:15",
+  "total": 2,
+  "success": 0,
+  "results": [
+    {
+      "server": "admin@127.0.0.1:2224",
+      "status": "error",
+      "message": "Failure"
+    },
+    {
+      "server": "testuser@127.0.0.1:2223",
+      "status": "error",
+      "message": "Failure"
+    }
+  ]
+}
